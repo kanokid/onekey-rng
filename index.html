@@ -9,14 +9,23 @@
     </div>
     <h1 id="display">Press O or Space to start!</h1>
     <script>
-      let random_number = 0;
       const display = document.getElementById("display");
+      let random_number = 0;
+      let coins = 0;
       document.addEventListener("keydown", (event) => {
         if (event.key == "o" || event.key == " ") {
           random_number = Math.floor(Math.random() * 10) + 1;
-          display.innerHTML = random_number;
+          coins += random_number;
+          display.innerHTML = "Rolled " + random_number + "! Coins: " + coins;
         }
       });
+      if (coins >= 100) {
+        document.body.style.backgroundColor = "gold";
+      } else if (coins >= 50) {
+        document.body.style.backgroundColor = "silver";
+      } else if (coins >= 20) {
+        document.body.style.backgroundColor = "lightblue";
+      }
     </script>
   </body>
 </html>
