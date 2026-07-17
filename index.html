@@ -7,7 +7,7 @@
     <div class="header-container">
       <h2 id="title">Slot machine</h2>
     </div>
-    <h1 id="display">Press O or Space to start!</h1>
+    <h1 id="display">Press Space to roll!</h1>
     <script>
       const display = document.getElementById("display");
       let random_number = 0;
@@ -16,7 +16,7 @@
       let silverHit = false;
       let goldHit = false;
       document.addEventListener("keydown", (event) => {
-        if (event.key == "o" || event.key == " ") {
+        if (event.key == " ") {
           random_number = Math.floor(Math.random() * 10) + 1;
           if (random_number == 3) {
             coins += random_number * 2;
