@@ -20,6 +20,7 @@
           random_number = Math.floor(Math.random() * 10) + 1;
           if (random_number == 3) {
             coins += random_number * 2;
+            document.body.style.backgroundColor = "skyblue";
             display.innerHTML =
               "Lucky 3! <br> You now have " + coins + " coins.";
           } else {
