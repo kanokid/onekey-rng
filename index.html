@@ -1,18 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
+  <head>
     <script>
       let random_number = 0;
       document.addEventListener("keydown", (event) => {
-        if (event.key == "o") { // Check if the key was an O
+        if (event.key == "o" || event.key == " ") {
+          // Check if the key was an O
           random_number = Math.floor(Math.random() * 10) + 1;
           alert(random_number);
         }
       });
     </script>
     <style>
+      @font-face {
+        font-family: "Monaspace Krypton";
+        src: url(https://cdn.jsdelivr.net/fontsource/fonts/monaspace-krypton@latest/latin-400-normal.woff2)
+          format("woff2");
+      }
+
       body {
-        background-color:  lightgreen;
+        background-color: lightgreen;
+        font-family: "Monaspace Krypton";
         display: flex;
         align-items: center;
         justify-items: center;
@@ -20,8 +28,8 @@
         margin: 0;
       }
     </style>
-	</head>
-	<body>
+  </head>
+  <body>
     <h1 id="title">Gambling slot machine.</h1>
- </body>
+  </body>
 </html>
