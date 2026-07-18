@@ -48,27 +48,18 @@
               rollCount += 1;
               document.body.style.backgroundColor = "skyblue";
               if (rollCount == 1) {
-                display.innerHTML = "Lucky 3!<br>You have rolled 1 time.";
+                display.innerHTML = "Lucky 3!";
               } else if (random_number == 3);
               {
-                display.innerHTML =
-                  "Lucky 3!<br>You have rolled " + rollcount + " times.";
+                display.innerHTML = "Lucky 3!";
               }
             } else {
               coinCount += random_number;
               rollCount += 1;
               if (rollCount == 1) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br> You have rolled 1 time.";
+                display.innerHTML = "You rolled a " + random_number + "!";
               } else if (rollCount != 1) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br> You have rolled " +
-                  rollCount +
-                  " times.";
+                display.innerHTML = "You rolled a " + random_number + "!";
               }
               coins.innerHTML = "Coins: " + coinCount;
               rolls.innerHTML = "Rolls: " + rollCount;
@@ -90,15 +81,13 @@
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You have rolled 1 time.<br>You have unlocked Gold!";
+                      "!<br>You have unlocked Gold!";
                   }
                 } else {
                   display.innerHTML =
                     "You rolled a " +
                     random_number +
-                    "!<br>You have rolled " +
-                    rollCount +
-                    "times.<br>You have unlocked Gold!";
+                    "!<br>You have unlocked Gold!";
                 }
                 goldUnlocked = true;
               }
@@ -110,14 +99,12 @@
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You have rolled 1 time.<br>You have unlocked Silver!";
+                      "!<br>You have unlocked Silver!";
                   } else {
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You have rolled " +
-                      rollCount +
-                      " times.<br>You have unlocked Silver!";
+                      "!<br>You have unlocked Silver!";
                   }
                   silverUnlocked = true;
                 }
