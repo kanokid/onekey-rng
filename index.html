@@ -9,66 +9,86 @@
     </div>
     <h1 id="display">Press Space to roll!</h1>
     <script>
+      function sound(src) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        this.sound.setAttribute("preload", "auto");
+        this.sound.setAttribute("controls", "none");
+        this.sound.style.display = "none";
+        document.body.appendChild(this.sound);
+        this.play = function () {
+          this.sound.play();
+        };
+        this.stop = function () {
+          this.sound.pause();
+        };
+      }
       const display = document.getElementById("display");
       let random_number = 0;
       let coins = 0;
       let bronzeHit = false;
       let silverHit = false;
       let goldHit = false;
+      var pullLeverSound;
+      pullLeverSound = new sound("pull_lever.mp3");
       document.addEventListener("keydown", (event) => {
         if (event.key == " ") {
-          random_number = Math.floor(Math.random() * 10) + 1;
-          if (random_number == 3) {
-            coins += random_number * 2;
-            document.body.style.backgroundColor = "skyblue";
-            display.innerHTML =
-              "Lucky 3! <br> You now have " + coins + " coins.";
-          } else {
-            coins += random_number;
-            display.innerHTML =
-              "You rolled a " +
-              random_number +
-              "!<br> You now have " +
-              coins +
-              " coins.";
-          }
-          if (coins >= 100) {
-            if (random_number != 3) {
-              document.body.style.backgroundColor = "gold";
-              if (!goldHit) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br>You now have " +
-                  coins +
-                  " coins. <br>You have unlocked Gold!";
-              }
-              goldHit = true;
+          pullLeverSound.play();
+          setTimeout(pullLever, 3800);
+          function pullLever() {
+            random_number = Math.floor(Math.random() * 10) + 1;
+            if (random_number == 3) {
+              coins += random_number * 2;
+              document.body.style.backgroundColor = "skyblue";
+              display.innerHTML =
+                "Lucky 3! <br> You now have " + coins + " coins.";
+            } else {
+              coins += random_number;
+              display.innerHTML =
+                "You rolled a " +
+                random_number +
+                "!<br> You now have " +
+                coins +
+                " coins.";
             }
-          } else if (coins >= 50) {
-            if (random_number != 3) {
-              document.body.style.backgroundColor = "silver";
-              if (!silverHit) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br>You now have " +
-                  coins +
-                  " coins. <br>You have unlocked Silver!";
-                silverHit = true;
+            if (coins >= 100) {
+              if (random_number != 3) {
+                document.body.style.backgroundColor = "gold";
+                if (!goldHit) {
+                  display.innerHTML =
+                    "You rolled a " +
+                    random_number +
+                    "!<br>You now have " +
+                    coins +
+                    " coins. <br>You have unlocked Gold!";
+                }
+                goldHit = true;
               }
-            }
-          } else if (coins >= 20) {
-            if (random_number != 3) {
-              document.body.style.backgroundColor = "#CD7F32";
-              if (!bronzeHit) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br>You now have " +
-                  coins +
-                  " coins. <br>You have unlocked Bronze!";
-                bronzeHit = true;
+            } else if (coins >= 50) {
+              if (random_number != 3) {
+                document.body.style.backgroundColor = "silver";
+                if (!silverHit) {
+                  display.innerHTML =
+                    "You rolled a " +
+                    random_number +
+                    "!<br>You now have " +
+                    coins +
+                    " coins. <br>You have unlocked Silver!";
+                  silverHit = true;
+                }
+              }
+            } else if (coins >= 20) {
+              if (random_number != 3) {
+                document.body.style.backgroundColor = "#CD7F32";
+                if (!bronzeHit) {
+                  display.innerHTML =
+                    "You rolled a " +
+                    random_number +
+                    "!<br>You now have " +
+                    coins +
+                    " coins. <br>You have unlocked Bronze!";
+                  bronzeHit = true;
+                }
               }
             }
           }
