@@ -18,10 +18,10 @@ body {
   justify-content: center;
   align-items: center;
 }
-.coin {
+.scoreDisplays {
   position: fixed;
-  left: 4vw;
-  top: 4vw;
+  left: 1vw;
+  top: 0vw;
   color: white;
   font-family: "Monaspace Krypton";
   font-size: 20px;
