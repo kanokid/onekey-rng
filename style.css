@@ -14,13 +14,20 @@ body {
   margin: 0;
 }
 
-.coin-item {
+.coin {
   position: fixed;
   left: 4vw;
   top: 4vw;
   color: white;
   font-family: "Monaspace Krypton";
   font-size: 20px;
+}
+.roll {
+  position: fixed;
+  left: 4vw;
+  top: 8vw;
+  color: white;
+  font-family: "Monaspace Krypton";
 }
 h1 {
   color: white;

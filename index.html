@@ -4,8 +4,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="coin-item">Coins:</div>
-
+    <div class="coin">
+      <h3 id="coins">Coins:</h3>
+    </div>
+    <div class="roll">
+      <h3 id="rolls">Rolls:</h3>
+    </div>
     <div class="header-container">
       <h2 id="title">Lotto machine</h2>
     </div>
@@ -44,43 +48,31 @@
               coins += random_number * 2;
               rolls += 1;
               document.body.style.backgroundColor = "skyblue";
-              if (rolls == 1 && coins == 1) {
-                display.innerHTML =
-                  "Lucky 3!<br>You now have 1 coin and you have rolled 1 time.";
-              } else if (random_number == 3 && coins != 1);
+              if (rolls == 1) {
+                display.innerHTML = "Lucky 3!<br>You have rolled 1 time.";
+              } else if (random_number == 3);
               {
                 display.innerHTML =
-                  "Lucky 3! <br> You now have " +
-                  coins +
-                  " coins and you have rolled " +
-                  rolls +
-                  " times.";
+                  "Lucky 3!<br>You have rolled " + rolls + " times.";
               }
             } else {
               coins += random_number;
               rolls += 1;
-              if (rolls == 1 && coins == 1) {
+              if (rolls == 1) {
                 display.innerHTML =
                   "You rolled a " +
                   random_number +
-                  "!<br> You now have 1 coin and have rolled 1 time.";
-              } else if (rolls == 1 && coins != 1) {
+                  "!<br> You have rolled 1 time.";
+              } else if (rolls != 1) {
                 display.innerHTML =
                   "You rolled a " +
                   random_number +
-                  "!<br> You now have " +
-                  coins +
-                  " coins and you have rolled 1 time.";
-              } else if (rolls != 1 && coins != 1) {
-                display.innerHTML =
-                  "You rolled a " +
-                  random_number +
-                  "!<br> You now have " +
-                  coins +
-                  " coins and you have rolled " +
+                  "!<br> You have rolled " +
                   rolls +
                   " times.";
               }
+              coins.innerHTML = "Coins: " + coins;
+              rolls.innerHTML = "Rolls: " + rolls;
               if (coins < 20) {
                 document.body.style.backgroundColor = "lightgreen";
               } else if (50 > coins && coins >= 20) {
@@ -99,17 +91,13 @@
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You now have " +
-                      coins +
-                      " coins and you have rolled 1 time.<br>You have unlocked Gold!";
+                      "!<br>You have rolled 1 time.<br>You have unlocked Gold!";
                   }
                 } else {
                   display.innerHTML =
                     "You rolled a " +
                     random_number +
-                    "!<br>You now have " +
-                    coins +
-                    " coins and you have rolled " +
+                    "!<br>You have rolled " +
                     rolls +
                     "times.<br>You have unlocked Gold!";
                 }
@@ -123,16 +111,12 @@
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You now have " +
-                      coins +
-                      " coins. and you have rolled 1 time.<br>You have unlocked Silver!";
+                      "!<br>You have rolled 1 time.<br>You have unlocked Silver!";
                   } else {
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You now have " +
-                      coins +
-                      " coins and you have rolled " +
+                      "!<br>You have rolled " +
                       rolls +
                       " times.<br>You have unlocked Silver!";
                   }
@@ -146,14 +130,12 @@
                   if (rolls == 1) {
                     "You rolled a " +
                       random_number +
-                      "!<br>You now have 1 coin.<br>You have unlocked Bronze!";
+                      "!<br>You have unlocked Bronze!";
                   } else {
                     display.innerHTML =
                       "You rolled a " +
                       random_number +
-                      "!<br>You now have " +
-                      coins +
-                      " coins. <br>You have unlocked Bronze!";
+                      "!<br>You have unlocked Bronze!";
                   }
                   bronzeUnlocked = true;
                 }
