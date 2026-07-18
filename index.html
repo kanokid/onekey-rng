@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="coin-item">Coins:</div>
+
     <div class="header-container">
       <h2 id="title">Lotto machine</h2>
     </div>
@@ -26,9 +28,9 @@
       const display = document.getElementById("display");
       let random_number = 0;
       let coins = 0;
-      let bronzeHit = false;
-      let silverHit = false;
-      let goldHit = false;
+      let bronzeUnlocked = false;
+      let silverUnlocked = false;
+      let goldUnlocked = false;
       let rolls = 0;
       var pullLeverSound;
       pullLeverSound = new sound("pull_lever.mp3");
@@ -80,12 +82,19 @@
                   " times.";
               }
               if (coins < 20) {
+                document.body.style.backgroundColor = "lightgreen";
+              } else if (50 > coins && coins >= 20) {
+                document.body.style.backgroundColor = "bronze";
+              } else if (100 > coins && coins >= 50) {
+                document.body.style.backgroundColor = "silver";
+              } else if (coins >= 100) {
+                document.body.style.backgroundColor = "gold";
               }
             }
             if (coins >= 100) {
               if (random_number != 3) {
                 document.body.style.backgroundColor = "gold";
-                if (!goldHit) {
+                if (!goldUnlocked) {
                   if ((rolls = 1)) {
                     display.innerHTML =
                       "You rolled a " +
@@ -104,12 +113,12 @@
                     rolls +
                     "times.<br>You have unlocked Gold!";
                 }
-                goldHit = true;
+                goldUnlocked = true;
               }
             } else if (coins >= 50) {
               if (random_number != 3) {
                 document.body.style.backgroundColor = "silver";
-                if (!silverHit) {
+                if (!silverUnlocked) {
                   if (rolls == 1) {
                     display.innerHTML =
                       "You rolled a " +
@@ -117,7 +126,6 @@
                       "!<br>You now have " +
                       coins +
                       " coins. and you have rolled 1 time.<br>You have unlocked Silver!";
-                    silverHit = true;
                   } else {
                     display.innerHTML =
                       "You rolled a " +
@@ -128,12 +136,13 @@
                       rolls +
                       " times.<br>You have unlocked Silver!";
                   }
+                  silverUnlocked = true;
                 }
               }
             } else if (coins >= 20) {
               if (random_number != 3) {
                 document.body.style.backgroundColor = "#CD7F32";
-                if (!bronzeHit) {
+                if (!bronzeUnlocked) {
                   if (rolls == 1) {
                     "You rolled a " +
                       random_number +
@@ -146,7 +155,7 @@
                       coins +
                       " coins. <br>You have unlocked Bronze!";
                   }
-                  bronzeHit = true;
+                  bronzeUnlocked = true;
                 }
               }
             }
