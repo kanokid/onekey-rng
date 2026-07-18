@@ -42,29 +42,34 @@
               coins += random_number * 2;
               rolls += 1;
               document.body.style.backgroundColor = "skyblue";
-              if (rolls == 1) {
+              if (rolls == 1 && coins == 1) {
                 display.innerHTML =
-                  "Lucky 3!<br>You now have " +
+                  "Lucky 3!<br>You now have 1 coin and you have rolled 1 time.";
+              } else if (random_number == 3 && coins != 1);
+              {
+                display.innerHTML =
+                  "Lucky 3! <br> You now have " +
                   coins +
-                  " coins and you have rolled 1 time.";
+                  " coins and you have rolled " +
+                  rolls +
+                  " times.";
               }
-              display.innerHTML =
-                "Lucky 3! <br> You now have " +
-                coins +
-                " coins and you have rolled " +
-                rolls +
-                " times.";
             } else {
               coins += random_number;
               rolls += 1;
-              if (rolls == 1) {
+              if (rolls == 1 && coins == 1) {
+                display.innerHTML =
+                  "You rolled a " +
+                  random_number +
+                  "!<br> You now have 1 coin and have rolled 1 time.";
+              } else if (rolls == 1 && coins != 1) {
                 display.innerHTML =
                   "You rolled a " +
                   random_number +
                   "!<br> You now have " +
                   coins +
                   " coins and you have rolled 1 time.";
-              } else {
+              } else if (rolls != 1 && coins != 1) {
                 display.innerHTML =
                   "You rolled a " +
                   random_number +
@@ -73,6 +78,8 @@
                   " coins and you have rolled " +
                   rolls +
                   " times.";
+              }
+              if (coins < 20) {
               }
             }
             if (coins >= 100) {
